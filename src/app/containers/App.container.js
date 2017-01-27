@@ -2,9 +2,9 @@ import {connect} from 'react-redux';
 import App from '../components/App.component';
 import {sendForm, getFormData} from '../actions/groups.action';
 
-const mapStateToProps = () => {
+const mapStateToProps = state => {
   return {
-
+    loading: state.groupsReducer.loading
   };
 };
 

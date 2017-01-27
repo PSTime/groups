@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import OneColumn from './simple/OneColumn.component';
+import OneColumn from './OneColumn.component';
 import {FieldArray, Field} from 'redux-form';
-import {requiredValidator} from '../libs/validators.lib';
+import {requiredValidator} from '../../libs/validators.lib';
 
 class OneGroup extends Component {
 

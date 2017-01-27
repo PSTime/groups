@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import OneGroup from '../containers/OneGroup.container';
+import OneGroup from './OneGroup.component';
 
 class GroupsList extends Component {
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import GroupsList from '../containers/GroupsList.container';
+import GroupsList from './simple/GroupsList.component';
 import {reduxForm, FieldArray} from 'redux-form';
 
 class Form extends Component {

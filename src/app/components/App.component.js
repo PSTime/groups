@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Form from './Form.component';
+import Form from '../containers/Form.container';
 
 class App extends Component {
 
@@ -15,18 +15,21 @@ class App extends Component {
   static get propTypes() {
     return {
       sendForm: React.PropTypes.func,
-      getFormData: React.PropTypes.func
+      getFormData: React.PropTypes.func,
+      loading: React.PropTypes.bool
     };
   }
 
   handleSubmit(val) {
     const {sendForm} = this.props;
-    console.log(val, sendForm);
     sendForm(val);
   }
 
   render() {
-    return <Form onSubmit={this.handleSubmit}/>;
+    const {loading} = this.props;
+    return (<div className={loading ? 'FormContainer FormContainer--loading' : 'FormContainer'}>
+      <Form onSubmit={this.handleSubmit}/>
+    </div>);
   }
 }
 

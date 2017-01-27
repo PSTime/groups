@@ -4,8 +4,8 @@ import {SEND_FORM, GET_FORM_DATA_START, SEND_FORM_SUCCEEDED, SEND_FORM_FAILED, G
 
 function * sendForm(action) {
   try {
-    const user = yield call(Api.sendForm, action.data);
-    yield put({type: SEND_FORM_SUCCEEDED, user});
+    const data = yield call(Api.sendForm, action.data);
+    yield put({type: SEND_FORM_SUCCEEDED, data});
   } catch (e) {
     yield put({type: SEND_FORM_FAILED, message: e.message});
   }
@@ -13,9 +13,8 @@ function * sendForm(action) {
 
 function * getFormData() {
   try {
-    const user = yield call(Api.getForm);
-    console.log(user);
-    yield put({type: GET_FORM_DATA_SUCCEEDED, user});
+    const data = yield call(Api.getForm);
+    yield put({type: GET_FORM_DATA_SUCCEEDED, data});
   } catch (e) {
     yield put({type: GET_FORM_DATA_FAILED, message: e.message});
   }
