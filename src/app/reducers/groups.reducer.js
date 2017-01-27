@@ -2,7 +2,7 @@ import {ADD_CARD, REMOVE_CARD} from '../constants/actionTypes.constant';
 import filter from 'lodash/filter';
 
 const initialState = {
-  groups: []
+  loading: false
 };
 
 const groupsReducer = (state = initialState, action) => {

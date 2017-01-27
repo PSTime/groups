@@ -8,9 +8,14 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getFormData();
+  }
+
   static get propTypes() {
     return {
-      sendForm: React.PropTypes.func
+      sendForm: React.PropTypes.func,
+      getFormData: React.PropTypes.func
     };
   }
 

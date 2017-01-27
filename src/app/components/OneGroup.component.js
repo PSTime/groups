@@ -36,7 +36,6 @@ class OneGroup extends Component {
 
   render() {
     const {group} = this.props;
-    console.log(group);
     return (<div className="row">
       <div className="column">
         <div className="card">

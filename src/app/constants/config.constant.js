@@ -1,0 +1,2 @@
+export const SERVER_URL = 'http://108.168.180.148/';
+export const USER_ID = '00000001-0002-0003-0004-000000000005';

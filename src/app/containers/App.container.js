@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import App from '../components/App.component';
-import {sendForm} from '../actions/groups.action';
+import {sendForm, getFormData} from '../actions/groups.action';
 
 const mapStateToProps = () => {
   return {
@@ -12,6 +12,9 @@ const mapDispatchToProps = dispatch => {
   return {
     sendForm: data => {
       dispatch(sendForm(data));
+    },
+    getFormData: () => {
+      dispatch(getFormData());
     }
   };
 };

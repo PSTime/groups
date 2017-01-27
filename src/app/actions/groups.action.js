@@ -1,7 +1,10 @@
-import {SEND_FORM} from '../constants/actionTypes.constant';
+import {SEND_FORM, GET_FORM_DATA_START} from '../constants/actionTypes.constant';
 import forEach from 'lodash/forEach';
 
 export const sendForm = data => {
+  /*
+  Normalize data to backend format
+   */
   const twitterMatchGroups = [];
   const instagramMatchGroups = [];
 
@@ -26,39 +29,20 @@ export const sendForm = data => {
       instagramMatchGroups.push(instagramMatchGroup);
     }
   });
+
   const result = {
     twitterMatchGroups,
     instagramMatchGroups
   };
-  const data2 = {
-    twitterMatchGroups: [
-      {
-        name: "string",
-        influencers: [
-          "string2"
-        ],
-        keywords: [
-          "string2"
-        ]
-      }
-    ],
-    instagramMatchGroups: [
-      {
-        name: "string",
-        influencers: [
-          "string3"
-        ],
-        keywords: [
-          "string3"
-        ]
-      }
-    ]
-  };
-  console.log(result);
-  console.log(data2);
 
   return {
     type: SEND_FORM,
-    data
+    data: result
+  };
+};
+
+export const getFormData = () => {
+  return {
+    type: GET_FORM_DATA_START
   };
 };
