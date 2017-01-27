@@ -1,4 +1,5 @@
 import {SERVER_URL, USER_ID} from '../constants/config.constant';
+import 'whatwg-fetch';
 
 export default class Api {
 
