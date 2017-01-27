@@ -12,7 +12,8 @@ class OneLine extends Component {
     return {
       label: React.PropTypes.string,
       removeLine: React.PropTypes.func,
-      index: React.PropTypes.number
+      index: React.PropTypes.number,
+      line: React.PropTypes.string
     };
   }
 
@@ -22,7 +23,7 @@ class OneLine extends Component {
   }
 
   render() {
-    const {label} = this.props;
+    const {label, line} = this.props;
     return (<div className="row column">
       <label>{label}</label>
       <div className="input-group">
@@ -31,7 +32,7 @@ class OneLine extends Component {
             <i className="fa fa-trash"/>
           </button>
         </div>
-        <Field component="input" name="influencers" className="input-group-field" type="text"/>
+        <Field component="input" name={`${line}.influencers`} className="input-group-field" type="text"/>
         <span className="input-group-label">$</span>
       </div>
     </div>);

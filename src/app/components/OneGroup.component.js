@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import OneColumn from './simple/OneColumn.component';
-import {FieldArray} from 'redux-form';
+import {FieldArray, Field} from 'redux-form';
 
 class OneGroup extends Component {
 
@@ -24,7 +24,8 @@ class OneGroup extends Component {
   }
 
   render() {
-    const {group} = this.props;
+    const {group, index} = this.props;
+    console.log(group);
     return (<div className="row">
       <div className="column">
         <div className="card">
@@ -32,7 +33,7 @@ class OneGroup extends Component {
             <div className="row align-middle">
               <div className="column">
                 <label>Card name
-                  <input type="text" placeholder="card name"/>
+                  <Field type="text" component="input" name={`${group}.name`} placeholder="card name"/>
                 </label>
               </div>
               <div className="column text-right">
@@ -43,13 +44,13 @@ class OneGroup extends Component {
           <div className="card-section">
             <div className="row">
               <div className="column">
-                <FieldArray name={`${group}.twitterMatchGroups`} label={'twitter influencer'} component={OneColumn}/>
+                <FieldArray name={`${group}[${index}].twitterMatchGroups`} label={'twitter influencer'} component={OneColumn}/>
               </div>
               <div className="column">
-                <FieldArray name={`${group}.instagramMatchGroups`} label={'instagram influencer'} component={OneColumn}/>
+                <FieldArray name={`${group}[${index}].instagramMatchGroups`} label={'instagram influencer'} component={OneColumn}/>
               </div>
               <div className="column">
-                <FieldArray name={`${group}.keywords`} label={'keywords'} component={OneColumn}/>
+                <FieldArray name={`${group}[${index}].keywords`} label={'keywords'} component={OneColumn}/>
               </div>
             </div>
           </div>
