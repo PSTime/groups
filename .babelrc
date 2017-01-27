@@ -7,10 +7,15 @@
   "env": {
     "test": {
       "plugins": [
-        "istanbul"
+        "istanbul",
+        "transform-object-rest-spread",
+        "react-hot-loader/babel"
       ]
     },
     "production": {
+      "plugins": [
+        "transform-object-rest-spread"
+      ],
       "presets": [
         [
           "es2015",

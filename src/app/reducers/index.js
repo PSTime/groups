@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import groupsReducer from './tables.reducer';
+import groupsReducer from './groups.reducer';
+import formReducer from './form.reducer';
 
 const mainReducer = combineReducers({
-  groupsReducer
+  groupsReducer,
+  form: formReducer
 });
 
 export default mainReducer;

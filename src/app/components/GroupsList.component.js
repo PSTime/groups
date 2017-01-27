@@ -1,53 +1,33 @@
 import React, {Component} from 'react';
+import OneGroup from '../containers/OneGroup.container';
 
 class GroupsList extends Component {
 
+  constructor(props) {
+    super(props);
+    this.handleOnAddCard = this.handleOnAddCard.bind(this);
+  }
+
   static get propTypes() {
-    return {};
+    return {
+      addCard: React.PropTypes.func,
+      fields: React.PropTypes.object
+    };
+  }
+
+  handleOnAddCard() {
+    const {fields} = this.props;
+    fields.push({});
   }
 
   render() {
-    return (<div className="row">
-      <div className="column">
-        <div className="card">
-          <div className="card-divider">
-            <div className="row align-middle">
-              <div className="column">
-                <label>Card name
-                  <input type="text" placeholder="card name"/>
-                </label>
-              </div>
-              <div className="column text-right">
-                <button className="alert button">Remove group</button>
-              </div>
-            </div>
-          </div>
-          <div className="card-section">
-            <div className="row">
-              <div className="column">
-                <div className="row column">
-                  <label>Label</label>
-                  <div className="input-group">
-                    <div className="input-group-button">
-                      <button className="button alert" type="button">
-                        <i className="fa fa-trash"/>
-                      </button>
-                    </div>
-                    <input className="input-group-field" type="text"/>
-                    <span className="input-group-label">$</span>
-                  </div>
-                </div>
-              </div>
-              <div className="column">
-              </div>
-              <div className="column">
-              </div>
-            </div>
-          </div>
-        </div>
-        <button className="success button">Add card</button>
+    const {fields} = this.props;
+    return (
+      <div>
+        <button className="success button" type="button" onClick={this.handleOnAddCard}>Add card</button>
+        {fields.map((group, key) => <OneGroup group={group} key={key} removeGroup={fields.remove} index={key}/>)}
       </div>
-    </div>);
+    );
   }
 }
 
