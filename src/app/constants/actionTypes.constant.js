@@ -1,2 +1,1 @@
-export const ADD_CARD = 'ADD_CARD';
-export const REMOVE_CARD = 'REMOVE_CARD';
+export const SEND_FORM = 'SEND_FORM';

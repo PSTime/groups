@@ -17,7 +17,7 @@ class OneColumn extends Component {
 
   handleOnAddLine() {
     const {fields} = this.props;
-    fields.push({});
+    fields.push();
   }
 
   render() {
@@ -25,7 +25,7 @@ class OneColumn extends Component {
     return (
       <div>
         {fields.map((line, key) => <OneLine line={line} key={key} removeGroup={fields.remove} label={label} index={key} removeLine={fields.remove}/>)}
-        <button className="button" type="button" onClick={this.handleOnAddLine}>Add line</button>
+        <button className="button" type="button" onClick={this.handleOnAddLine}>Add {label}</button>
       </div>
     );
   }

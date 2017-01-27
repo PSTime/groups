@@ -42,7 +42,7 @@ class OneLine extends Component {
     const {label, line} = this.props;
     return (<div className="row column">
       <label>{label}</label>
-      <Field component={this._renderField} name={`${line}.influencers`} type="text" validate={requiredValidator}/>
+      <Field component={this._renderField} name={line} type="text" validate={requiredValidator}/>
     </div>);
   }
 }

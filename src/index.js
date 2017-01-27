@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import {Provider} from 'react-redux';
 import mainReducer from './app/reducers/';
 import mainSaga from './app/sagas/sagas';
-import Form from './app/components/Form.component';
+import App from './app/containers/App.container';
 import './index.scss';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -18,7 +18,7 @@ sagaMiddleware.run(mainSaga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Form/>
+    <App/>
   </Provider>,
   document.getElementById('root')
 );

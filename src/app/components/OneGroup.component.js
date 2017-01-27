@@ -35,7 +35,7 @@ class OneGroup extends Component {
   }
 
   render() {
-    const {group, index} = this.props;
+    const {group} = this.props;
     console.log(group);
     return (<div className="row">
       <div className="column">
@@ -55,13 +55,13 @@ class OneGroup extends Component {
           <div className="card-section">
             <div className="row">
               <div className="column">
-                <FieldArray name={`${group}[${index}].twitterMatchGroups`} label={'twitter influencer'} component={OneColumn}/>
+                <FieldArray name={`${group}.twitterMatchGroups`} label={'twitter influencer'} component={OneColumn}/>
               </div>
               <div className="column">
-                <FieldArray name={`${group}[${index}].instagramMatchGroups`} label={'instagram influencer'} component={OneColumn}/>
+                <FieldArray name={`${group}.instagramMatchGroups`} label={'instagram influencer'} component={OneColumn}/>
               </div>
               <div className="column">
-                <FieldArray name={`${group}[${index}].keywords`} label={'keywords'} component={OneColumn}/>
+                <FieldArray name={`${group}.keywords`} label={'keywords'} component={OneColumn}/>
               </div>
             </div>
           </div>
