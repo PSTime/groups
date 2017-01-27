@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import GroupsList from '../containers/GroupsList.container';
 import {reduxForm, FieldArray} from 'redux-form';
+import ReactTooltip from 'react-tooltip';
 
 class Form extends Component {
 
@@ -25,13 +26,13 @@ class Form extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (<div className="row">
       <div className="column">
         <form onSubmit={this.handleSubmit}>
           <div className="column">
             <FieldArray name="groups" component={GroupsList}/>
             <button type="submit">Save</button>
+            <ReactTooltip html/>
           </div>
         </form>
       </div>

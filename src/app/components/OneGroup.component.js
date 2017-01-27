@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import OneColumn from './simple/OneColumn.component';
 import {FieldArray, Field} from 'redux-form';
+import {requiredValidator} from '../libs/validators.lib';
 
 class OneGroup extends Component {
 
@@ -19,8 +20,18 @@ class OneGroup extends Component {
 
   handleOnRemoveCard() {
     const {removeGroup, index} = this.props;
-    console.log(index, removeGroup);
     removeGroup(index);
+  }
+
+  _renderField({input, type, meta: {touched, error}}) {
+    return (<div className="input-group">
+      <input {...input} type={type} className="input-group-field"/>
+      <span className="input-group-label">
+        {!touched && error && <i className="fa fa-info"/>}
+        {touched && error && <i className="fa fa-times"/>}
+        {touched && !error && <i className="fa fa-check"/>}
+      </span>
+    </div>);
   }
 
   render() {
@@ -33,7 +44,7 @@ class OneGroup extends Component {
             <div className="row align-middle">
               <div className="column">
                 <label>Card name
-                  <Field type="text" component="input" name={`${group}.name`} placeholder="card name"/>
+                  <Field type="text" component={this._renderField} name={`${group}.name`} placeholder="card name" validate={requiredValidator}/>
                 </label>
               </div>
               <div className="column text-right">
