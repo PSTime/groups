@@ -5,3 +5,4 @@
 
 - `npm run build` to build an optimized version of application in /dist
 - `npm run serve` to launch a browser sync server on source files
+- `npm run test` to launch unit tests
